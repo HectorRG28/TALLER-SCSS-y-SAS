@@ -1,0 +1,36 @@
+
+
+@use 'variables' as v; // Importa las variables
+@use 'gallery';       // Importa los estilos realizados en la galería
+//ponemos los estilos princiapales
+body {
+    font-family: v.$fontfamilybody;
+    background-color: v.$backgroundcolorbody;
+    color: v.$textcolorbody;
+    margin: 0;
+    padding: 0;
+    // Añadimos el padding para que el footer no tape las tarjetas
+    padding-bottom: 80px; 
+}
+
+header {
+    background-color: v.$colorfondoheader;
+    color: v.$colortextoheader;
+    padding: v.$paddingheader;
+    text-align: v.$textalignheader;
+}
+
+footer {
+    background-color: v.$colorfondofooter;
+    color: v.$colortextofooter;
+    padding: v.$paddingfooter;
+    text-align: v.$textalignfooter;
+    position: v.$positionfooter;
+    bottom: v.$bottomfooter;
+    
+    // Usamos la variable creada antes para el ancho
+    width: v.$widthfooter; 
+    
+   //Para tener un footer fijo y que ocupe todo
+    width: 100%; 
+}

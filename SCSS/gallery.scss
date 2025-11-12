@@ -1,0 +1,70 @@
+
+// Importamos las variables
+@use 'variables' as v;
+
+.gallery-container {
+    // Requisito: Usar Flexbox o Grid para organizar [cite: 34]
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    
+    // Anidamiento
+    .gallery-card {
+        //padre relative [cite: 41, 62]
+        position: relative;
+        width: 300px; //Damos el tamaño fijo para que se vea de manera correcta
+        border-radius: 5px;
+        overflow: hidden; //Para que el contenido no se salga de la tarjeta
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+
+        img {
+            display: block; //Quita espacios innecesarios
+            width: 100%;
+            height: auto;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            // Usamos las variables del archivo variables.scss
+            background-color: v.$color-overlay-fondo;
+            color: v.$color-overlay-texto;
+
+            opacity: 0;
+            
+        
+            transition: opacity 0.3s ease-in-out;
+
+            // Centramos el contenido de las tarjetas
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            box-sizing: border-box; 
+            h3 {
+                margin: 0 0 10px 0;
+                text-align: center;
+            }
+
+            p {
+                margin: 0;
+                text-align: center;
+                font-size: 0.9em;
+            }
+        }
+
+        //Efecto Hover 
+        &:hover {
+            .card-overlay {
+                opacity: 1;
+            }
+        }
+    }
+}
